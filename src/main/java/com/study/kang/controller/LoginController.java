@@ -17,4 +17,9 @@ public class LoginController {
     public String accessDenied(Locale locale, Model model) {
         return "login/accessDenied";
     }
+
+    @RequestMapping(value = "/login/duplicateLogin")
+    public String duplicateLogin(Locale locale, Model model) {
+        return "login/duplicateLogin";
+    }
 }
