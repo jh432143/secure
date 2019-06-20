@@ -1,5 +1,7 @@
 package com.study.kang.handler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
@@ -9,16 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UserLoginFailureHandler implements AuthenticationFailureHandler {
+    private Logger logger = LoggerFactory.getLogger(UserLoginFailureHandler.class);
+
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
-        System.out.println(e.getLocalizedMessage());
-        System.out.println(e.getMessage());
-        for (StackTraceElement stack : e.getStackTrace()) {
-            System.out.println(stack.getClassName());
-            System.out.println(stack.getFileName());
-            System.out.println(stack.getMethodName());
-            System.out.println(stack.getLineNumber()+"");
-            System.out.println(stack.isNativeMethod()+"");
-        }
+        logger.info(e.getLocalizedMessage());
+        logger.info(e.getMessage());
 
         response.sendRedirect(request.getContextPath() + "/login/loginForm?error");
     }

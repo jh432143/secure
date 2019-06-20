@@ -1,6 +1,13 @@
 package com.study.kang.handler;
 
+import com.study.kang.common.security.CustomUserDetail;
+import com.study.kang.vo.UserVO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -10,23 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
+    private Logger logger = LoggerFactory.getLogger(UserLoginSuccessHandler.class);
+    private static int TIME = 60 * 60; // 1시간
+
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth) throws IOException, ServletException {
-        System.out.println(auth.getName());
-        System.out.println(auth.getAuthorities().toString());
-        System.out.println(auth.getDetails().toString());
-        System.out.println(auth.getPrincipal().toString());
+        request.getSession().setMaxInactiveInterval(TIME);
 
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
-
-        System.out.println(userDetails.getUsername());
-        System.out.println(userDetails.getPassword());
-        System.out.println(userDetails.isAccountNonExpired());
-        System.out.println(userDetails.isAccountNonLocked());
-        System.out.println(userDetails.isCredentialsNonExpired());
-        System.out.println(userDetails.isEnabled());
+        logger.info("name : {}, auth : {}, detail : {}, principal : {}", auth.getName(), auth.getAuthorities().toString(), auth.getDetails().toString(), auth.getPrincipal().toString());
 
         response.sendRedirect(request.getContextPath() + "/index");
     }
-
-
 }

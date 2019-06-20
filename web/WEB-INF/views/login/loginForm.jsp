@@ -33,5 +33,6 @@
     </p>
     <button type="submit" class="btn">로그인</button>
 </form:form>
+    [<a href="<c:url value="/member/memberJoinPage" />">가입 페이지</a>]
 </body>
 </html>
