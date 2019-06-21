@@ -31,6 +31,8 @@
         <label for="password">비밀번호</label>
         <input type="password" id="password" name="password"/>
     </p>
+    <input id="remember_me" name="remember-me-param" type="checkbox"/>Remember me
+
     <button type="submit" class="btn">로그인</button>
 </form:form>
     [<a href="<c:url value="/member/memberJoinPage" />">가입 페이지</a>]

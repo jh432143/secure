@@ -6,6 +6,7 @@ public class UserVO {
     private String email;
     private String name;
     private String password;
+    private String authority;
 
     public String getId() {
         return id;
@@ -37,5 +38,13 @@ public class UserVO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

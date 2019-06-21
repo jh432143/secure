@@ -16,7 +16,9 @@ public class MemberService {
 
     public void memberJoin(UserVO userVO) throws Exception {
         userVO.setPassword(bCryptPasswordEncoder.encode(userVO.getPassword()));
+        userVO.setAuthority("ROLE_USER");
 
         memberMapper.memberJoin(userVO);
+        memberMapper.authJoin(userVO);
     }
 }
