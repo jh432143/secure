@@ -14,11 +14,11 @@ public class MemberService {
     @Autowired
     private MemberMapper memberMapper;
 
-    public void memberJoin(UserVO userVO) throws Exception {
+    public void insertMember(UserVO userVO) throws Exception {
         userVO.setPassword(bCryptPasswordEncoder.encode(userVO.getPassword()));
         userVO.setAuthority("ROLE_USER");
 
-        memberMapper.memberJoin(userVO);
-        memberMapper.authJoin(userVO);
+        memberMapper.insertMember(userVO);
+        memberMapper.insertAuth(userVO);
     }
 }

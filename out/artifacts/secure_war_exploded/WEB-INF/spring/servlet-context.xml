@@ -6,6 +6,7 @@
 
     <mvc:annotation-driven></mvc:annotation-driven>
     <context:component-scan base-package="com.study.kang"></context:component-scan>
+    <context:component-scan base-package="com.study.api"></context:component-scan>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

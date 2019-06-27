@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.kang.mappers.MemberMapper">
-    <insert id="memberJoin" parameterType="com.study.kang.vo.UserVO">
+    <insert id="insertMember" parameterType="com.study.kang.vo.UserVO">
       INSERT INTO users (id, password, name, email) VALUES (#{id}, #{password}, #{name, jdbcType=VARCHAR}, #{email, jdbcType=VARCHAR})
     </insert>
 
-    <insert id="authJoin" parameterType="com.study.kang.vo.UserVO">
+    <insert id="insertAuth" parameterType="com.study.kang.vo.UserVO">
       INSERT INTO authorities (id, authority) VALUES (#{id}, #{authority})
     </insert>
 

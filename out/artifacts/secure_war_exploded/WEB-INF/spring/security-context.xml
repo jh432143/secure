@@ -14,6 +14,7 @@
         <security:intercept-url pattern="/login/loginForm" access="permitAll()"></security:intercept-url>
         <security:intercept-url pattern="/index" access="permitAll()"></security:intercept-url>
         <security:intercept-url pattern="/member/**" access="permitAll()"></security:intercept-url>
+        <security:intercept-url pattern="/sample/**" access="permitAll()"></security:intercept-url>
         <security:intercept-url pattern="/admin/**" access="hasRole('ADMIN')"></security:intercept-url>
         <security:intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')"></security:intercept-url>
 

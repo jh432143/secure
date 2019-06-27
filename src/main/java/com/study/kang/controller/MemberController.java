@@ -23,7 +23,7 @@ public class MemberController {
     // 회원가입 처리
     @RequestMapping(value = "/member/memberJoin")
     public String memberJoin (Locale locale, Model model, UserVO userVO) throws Exception {
-        memberService.memberJoin(userVO);
+        memberService.insertMember(userVO);
         return "index";
     }
 }
